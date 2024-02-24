@@ -3,12 +3,8 @@ import en from './dict/en.json'
 import pt from './dict/pt.json'
 
 const messages = {
-  en: {
-    message: en
-  },
-  pt: {
-    message: pt
-  }
+  en,
+  pt
 }
 
 const i18n = createI18n({

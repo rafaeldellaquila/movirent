@@ -1,3 +1,11 @@
 {
-  "hello": "hello world"
+  "email": "Email",
+  "email_placeholder": "user{'@'}email.com",
+  "forgot_password": "Forgot your password?",
+  "password": "Password",
+  "password_placeholder": "•••••••",
+  "register_cta": "Don't have an account yet?",
+  "sign_account": "Sign in to your account",
+  "sign_in": "Sign In",
+  "sign_up": "Sign Up"
 }
