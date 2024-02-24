@@ -3,23 +3,14 @@
 import defaultTheme from 'tailwindcss/defaultTheme'
 
 export default {
+  darkMode: 'class',
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
-        primary: {
-          '50': '#eff6ff',
-          '100': '#dbeafe',
-          '200': '#bfdbfe',
-          '300': '#93c5fd',
-          '400': '#60a5fa',
-          '500': '#3b82f6',
-          '600': '#2563eb',
-          '700': '#1d4ed8',
-          '800': '#1e40af',
-          '900': '#1e3a8a',
-          '950': '#172554'
-        }
+        primary: { main: '#2E1F7A', dark: '#1A162E' },
+        secondary: { main: '#FEDE03', dark: '#FECC03' },
+        white: '#FFFEFA'
       },
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans]
