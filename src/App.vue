@@ -3,10 +3,6 @@ import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <header>
-    <div>
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
+  <header></header>
   <RouterView />
 </template>
