@@ -1,8 +1,8 @@
 <template>
   <MHeader />
-  <main class="mx-auto p-4 lg:max-w-2xl my-16">
+  <section class="mx-auto lg:max-w-2xl flex-grow mt-10 md:mt-20 mb-40">
     <RouterView />
-  </main>
+  </section>
   <OFooter />
 </template>
 <script setup lang="ts">

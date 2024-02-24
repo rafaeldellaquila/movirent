@@ -1,6 +1,6 @@
 <template>
-  <header class="mt-20">
-    <nav class="w-full flex justify-center my-5">
+  <header class="mt-10 mb:mt-20">
+    <nav class="w-full flex justify-center">
       <ALogo negative />
     </nav>
   </header>
