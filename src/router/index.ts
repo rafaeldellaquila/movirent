@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { useAuthStore } from '@/store/authStore'
-import UnauthTemplate from '@/templates/UnauthTemplate.vue'
+import { useAuthStore } from '@store/authStore'
+import UnauthTemplate from '@templates/UnauthTemplate.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -13,6 +13,11 @@ const router = createRouter({
           path: '',
           name: 'login',
           component: () => import('../pages/LoginPage.vue')
+        },
+        {
+          path: '/register',
+          name: 'register',
+          component: () => import('../pages/RegisterPage.vue')
         }
       ]
     }

@@ -1,0 +1,26 @@
+<template>
+  <h2 class="text-lg font-medium leading-tight tracking-tight text-white md:text-xl">
+    {{ $t('password_creation') }}
+  </h2>
+  <div class="flex flex-col md:flex-row md:space-x-4">
+    <MForm
+      id="password"
+      name="password"
+      label="password"
+      type="password"
+      placeholder="password_placeholder"
+      class="w-full"
+    />
+    <MForm
+      id="repeat_password"
+      name="repeat_password"
+      label="repeat_password"
+      type="password"
+      placeholder="password_placeholder"
+      class="w-full"
+    />
+  </div>
+</template>
+<script setup lang="ts">
+import MForm from './MForm.vue'
+</script>
