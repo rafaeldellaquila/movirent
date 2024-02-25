@@ -21,7 +21,7 @@
     <p class="text-sm font-light text-white">
       {{ $t('register_cta') }}
       <RouterLink
-        to="/register"
+        to="register"
         class="font-medium text-primary-600 hover:underline dark:text-primary-500"
       >
         {{ $t('sign_up') }}

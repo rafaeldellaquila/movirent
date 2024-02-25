@@ -1,52 +1,84 @@
-import type { UserProps } from '@/types/user'
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
-import axios from 'axios'
+import type { AuthProps, UserProps } from '@/types/common'
+
 import { defineStore } from 'pinia'
 
-export const useUserStore = defineStore('user', {
-  state: () => ({
-    user: {} as UserProps,
-    isAuthenticated: false
-  }),
-  actions: {
-    async fetchAddressByCep(cep: string) {
-      try {
-        const response = await axios.get(`https://viacep.com.br/ws/${cep}/json`)
-        if (response.data) {
-          this.user.street = response.data.logradouro || ''
-          this.user.neighborhood = response.data.bairro || ''
-          this.user.city = response.data.localidade || ''
-          this.user.state = response.data.uf || ''
-          this.user.cep = cep
-        }
-      } catch (error) {
-        console.error('Erro ao buscar CEP', error)
-      }
-    },
-    registerUser(userData: UserProps) {
-      this.user = userData
-      this.isAuthenticated = true
-      this.saveUserData()
-    },
-    login(userData: UserProps) {
-      this.user = userData
-      this.isAuthenticated = true
-      this.saveUserData()
-    },
-    logout() {
-      this.user = {} as UserProps
-      this.isAuthenticated = false
-      localStorage.removeItem('user')
-    },
-    saveUserData() {
-      localStorage.setItem('user', JSON.stringify(this.user))
-    },
-    loadUserData() {
-      const userData = localStorage.getItem('user')
-      if (userData) {
-        this.user = JSON.parse(userData)
-        this.isAuthenticated = true
-      }
+// Função para verificar credenciais
+function verifyCredentials(storedUser: UserProps, { email, password }: AuthProps): boolean {
+  return (
+    storedUser.email === email && storedUser.password === password && storedUser.status === true
+  )
+}
+
+export const useUserStore = defineStore('user', () => {
+  const router = useRouter()
+  const user = ref<UserProps>({
+    uid: '0',
+    name: '',
+    tel: '',
+    document: '',
+    email: '',
+    password: '',
+    status: false
+  })
+  const isAuthenticated = ref(loadAuthenticationState())
+
+  function saveUserData(user: UserProps) {
+    console.log('saveUserData', user)
+    localStorage.setItem('user', JSON.stringify(user))
+  }
+
+  function loadUserData(): UserProps | undefined {
+    const userData = localStorage.getItem('user')
+    return userData ? JSON.parse(userData) : user
+  }
+
+  function saveAuthenticationState(isAuth: boolean) {
+    localStorage.setItem('isAuthenticated', JSON.stringify(isAuth))
+  }
+
+  function loadAuthenticationState(): boolean {
+    const isAuth = localStorage.getItem('isAuthenticated')
+    return isAuth ? JSON.parse(isAuth) : false
+  }
+
+  function registerUser(userData: UserProps) {
+    user.value = { ...userData, status: true, uid: crypto.randomUUID() }
+    isAuthenticated.value = true
+    saveUserData(user.value)
+    saveAuthenticationState(true)
+    router.push('/auth/dashboard')
+  }
+
+  function login(authProps: AuthProps) {
+    const storedUser = loadUserData()
+    if (storedUser && verifyCredentials(storedUser, authProps)) {
+      user.value = storedUser
+      isAuthenticated.value = true
+      saveAuthenticationState(true)
+      router.push('/auth/dashboard')
+    } else {
+      throw new Error('Credenciais inválidas')
     }
+  }
+
+  function logout() {
+    console.log('clique')
+    isAuthenticated.value = false
+    saveAuthenticationState(false)
+    console.log('logout', isAuthenticated)
+    router.push('/')
+  }
+
+  return {
+    user,
+    registerUser,
+    login,
+    logout,
+    loadUserData,
+    saveUserData,
+    loadAuthenticationState
   }
 })

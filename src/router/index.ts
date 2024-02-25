@@ -1,7 +1,6 @@
+import AuthTemplate from '@/templates/AuthTemplate.vue'
 import UnauthTemplate from '@templates/UnauthTemplate.vue'
 import { createRouter, createWebHistory } from 'vue-router'
-
-import { useAuthStore } from '@store/authStore'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -16,37 +15,48 @@ const router = createRouter({
           component: () => import('../pages/LoginPage.vue')
         },
         {
-          path: '/register',
+          path: 'register',
           name: 'register',
           component: () => import('../pages/RegisterPage.vue')
         },
         {
-          path: '/about',
+          path: 'about',
           name: 'about',
           component: () => import('../pages/LoginPage.vue') // CRIAR
         },
         {
-          path: '/faq',
+          path: 'faq',
           name: 'faq',
           component: () => import('../pages/LoginPage.vue') // CRIAR
         },
         {
-          path: '/contact',
+          path: 'contact',
           name: 'contact',
           component: () => import('../pages/LoginPage.vue') // CRIAR
+        }
+      ]
+    },
+    {
+      path: '/auth',
+      component: AuthTemplate,
+      children: [
+        {
+          path: 'dashboard',
+          name: 'dashboard',
+          component: () => import('../pages/DashboardPage.vue')
         }
       ]
     }
   ]
 })
 
-router.beforeEach((to, from, next) => {
-  const authStore = useAuthStore()
-  if (to.meta.requiresAuth && !authStore.isAuthenticated()) {
-    next({ name: 'login' })
-  } else {
-    next()
-  }
-})
+// router.beforeEach((to, from, next) => {
+//   const authStore = useAuthStore()
+//   if (to.meta.requiresAuth && !authStore.isAuthenticated()) {
+//     next({ name: 'login' })
+//   } else {
+//     next()
+//   }
+// })
 
 export default router

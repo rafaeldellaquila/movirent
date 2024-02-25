@@ -5,13 +5,17 @@
 </template>
 
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
+import { RouterView, useRouter } from 'vue-router'
 
 import { useUserStore } from '@store/userStore'
 
-const { loadUserData, isAuthenticated } = useUserStore()
-loadUserData()
-if (isAuthenticated) {
-  console.log('tá autenticado', isAuthenticated)
+const { loadUserData, loadAuthenticationState } = useUserStore()
+const router = useRouter()
+
+console.log('tá autenticado', loadAuthenticationState())
+
+if (loadAuthenticationState()) {
+  loadUserData()
+  router.push('/auth/dashboard/')
 }
 </script>
