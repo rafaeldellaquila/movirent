@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import { useUserStore } from '@store/userStore'
+import { useAuthStore } from '@/store/authStore'
 
-const { logout } = useUserStore()
+const { logout } = useAuthStore()
 </script>

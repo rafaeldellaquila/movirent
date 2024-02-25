@@ -9,7 +9,10 @@ import { RouterView, useRouter } from 'vue-router'
 
 import { useUserStore } from '@store/userStore'
 
-const { loadUserData, loadAuthenticationState } = useUserStore()
+import { useAuthStore } from './store/authStore'
+
+const { loadAuthenticationState } = useAuthStore()
+const { loadUserData } = useUserStore()
 const router = useRouter()
 
 console.log('tá autenticado', loadAuthenticationState())

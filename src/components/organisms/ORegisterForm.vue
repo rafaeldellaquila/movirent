@@ -23,9 +23,12 @@ import MPasswordForm from '@molecules/MPasswordForm.vue'
 import MPersonalData from '@molecules/MPersonalDataForm.vue'
 import { RouterLink } from 'vue-router'
 
+import { useAuthStore } from '@/store/authStore'
+
 import { useUserStore } from '@store/userStore'
 
-const { user, registerUser } = useUserStore()
+const { user } = useUserStore()
+const { registerUser } = useAuthStore()
 
 const submitForm = () => registerUser(user)
 </script>
