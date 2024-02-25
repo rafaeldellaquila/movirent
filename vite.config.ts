@@ -20,7 +20,9 @@ export default defineConfig({
       '@services': fileURLToPath(new URL('./src/services', import.meta.url)),
       '@store': fileURLToPath(new URL('./src/store', import.meta.url)),
       '@templates': fileURLToPath(new URL('./src/templates', import.meta.url)),
-      '@tests': fileURLToPath(new URL('./src/tests', import.meta.url))
+      '@tests': fileURLToPath(new URL('./src/tests', import.meta.url)),
+      '@types': fileURLToPath(new URL('./src/types', import.meta.url)),
+      '@utils': fileURLToPath(new URL('./src/utils', import.meta.url))
     }
   }
 })

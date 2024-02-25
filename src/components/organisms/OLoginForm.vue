@@ -15,7 +15,8 @@
     </div>
     <AButton
       label="sign_in"
-      buttonClass="w-full text-primary-main bg-secondary-main hover:bg-secondary-dark focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+      type="submit"
+      buttonClass="text-primary-main bg-secondary-main hover:bg-secondary-dark px-5 py-2.5"
     />
     <p class="text-sm font-light text-white">
       {{ $t('register_cta') }}

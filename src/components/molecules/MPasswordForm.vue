@@ -8,6 +8,7 @@
       name="password"
       label="password"
       type="password"
+      v-model="password"
       placeholder="password_placeholder"
       class="w-full"
     />
@@ -16,6 +17,8 @@
       name="repeat_password"
       label="repeat_password"
       type="password"
+      v-model="repeat_password"
+      @update:modelValue="updatePassword"
       placeholder="password_placeholder"
       class="w-full"
     />
@@ -23,4 +26,18 @@
 </template>
 <script setup lang="ts">
 import MForm from './MForm.vue'
+import { ref } from 'vue'
+import { useUserStore } from '@store/userStore'
+
+const password = ref('')
+const repeat_password = ref('')
+const { user } = useUserStore()
+
+function updatePassword() {
+  if (password.value === repeat_password.value) {
+    user.password = password.value
+  } else {
+    console.error('As senhas não coincidem.')
+  }
+}
 </script>

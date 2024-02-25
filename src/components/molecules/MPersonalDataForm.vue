@@ -8,6 +8,7 @@
       name="name"
       label="name"
       type="text"
+      v-model="user.name"
       placeholder="name_placeholder"
       class="w-full"
     />
@@ -16,6 +17,7 @@
       name="email"
       label="email"
       type="email"
+      v-model="user.email"
       placeholder="email_placeholder"
       class="w-full"
     />
@@ -26,6 +28,7 @@
       name="tel"
       label="tel"
       type="tel"
+      v-model="user.tel"
       placeholder="tel_placeholder"
       class="w-full"
     />
@@ -34,6 +37,7 @@
       name="document"
       label="document"
       type="text"
+      v-model="user.document"
       placeholder="document_placeholder"
       class="w-full"
     />
@@ -41,5 +45,8 @@
 </template>
 
 <script setup lang="ts">
-import MForm from '@molecules/MForm.vue'
+import { useUserStore } from '@/store/userStore'
+import MForm from './MForm.vue'
+
+const { user } = useUserStore()
 </script>
