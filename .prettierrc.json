@@ -1,15 +1,15 @@
 {
   "$schema": "https://json.schemastore.org/prettierrc",
   "importOrder": [
+    "vue",
     "<THIRD_PARTY_MODULES>",
-    "(vue|vue-router)",
-    "^[./*]",
     "(@/(.*)$|@assets/(.*)$|@styles/(.*)$|@atoms/(.*)$|@molecules/(.*)$|@organisms/(.*)$)",
     "(@pages/(.*)$|@templates/(.*)$)",
     "@router/(.*)$",
     "(@i18n/(.*)$|@utils/(.*)$|@services/(.*)$|@store/(.*)$)",
     "@tests/(.*)$",
-    "@types/(.*)$"
+    "@types/(.*)$",
+    "./*"
   ],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
