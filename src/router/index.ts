@@ -1,6 +1,7 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import { useAuthStore } from '@store/authStore'
 import UnauthTemplate from '@templates/UnauthTemplate.vue'
+import { createRouter, createWebHistory } from 'vue-router'
+
+import { useAuthStore } from '@store/authStore'
 
 const router = createRouter({
   history: createWebHistory(),

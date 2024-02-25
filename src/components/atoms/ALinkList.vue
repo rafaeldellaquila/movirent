@@ -5,6 +5,7 @@
 </template>
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
+
 defineProps({
   classes: String,
   text: String,

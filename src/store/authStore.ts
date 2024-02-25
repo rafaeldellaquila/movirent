@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
-import { setData, getData, removeData } from '../services/localStorageDB'
+
+import { getData, removeData, setData } from '../services/localStorageDB'
 
 export const useAuthStore = defineStore('auth', {
   state: () => ({

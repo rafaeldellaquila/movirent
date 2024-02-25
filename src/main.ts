@@ -1,11 +1,15 @@
+import { vMaska } from 'maska'
+import { createPinia } from 'pinia'
+
+import App from '@/App.vue'
+import { createApp } from 'vue'
+
 import '@styles/base.css'
 import '@styles/tailwind.css'
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
-import i18n from '@i18n/index'
-import App from '@/App.vue'
+
 import router from '@router/index'
-import { vMaska } from 'maska'
+
+import i18n from '@i18n/index'
 
 const app = createApp(App)
 

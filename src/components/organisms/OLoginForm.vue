@@ -31,8 +31,8 @@
 </template>
 
 <script setup lang="ts">
-import MForm from '@molecules/MForm.vue'
 import AButton from '@atoms/AButton.vue'
+import MForm from '@molecules/MForm.vue'
 
 const emits = defineEmits(['submitForm'])
 

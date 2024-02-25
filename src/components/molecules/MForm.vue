@@ -14,8 +14,8 @@
 </template>
 
 <script setup lang="ts">
-import ALabel from '@atoms/ALabel.vue'
 import AInput from '@atoms/AInput.vue'
+import ALabel from '@atoms/ALabel.vue'
 
 defineProps({
   type: String,

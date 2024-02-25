@@ -1,5 +1,19 @@
 {
   "$schema": "https://json.schemastore.org/prettierrc",
+  "importOrder": [
+    "<THIRD_PARTY_MODULES>",
+    "(vue|vue-router)",
+    "^[./*]",
+    "(@/(.*)$|@assets/(.*)$|@styles/(.*)$|@atoms/(.*)$|@molecules/(.*)$|@organisms/(.*)$)",
+    "(@pages/(.*)$|@templates/(.*)$)",
+    "@router/(.*)$",
+    "(@i18n/(.*)$|@utils/(.*)$|@services/(.*)$|@store/(.*)$)",
+    "@tests/(.*)$",
+    "@types/(.*)$"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "plugins": ["@trivago/prettier-plugin-sort-imports"],
   "printWidth": 100,
   "semi": false,
   "singleQuote": true,

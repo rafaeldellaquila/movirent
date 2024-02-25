@@ -23,9 +23,9 @@
   </footer>
 </template>
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
-import ALogo from '@atoms/ALogo.vue'
 import ALinkList from '@atoms/ALinkList.vue'
+import ALogo from '@atoms/ALogo.vue'
+import { RouterLink } from 'vue-router'
 
 const list = [
   {

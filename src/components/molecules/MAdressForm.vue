@@ -62,9 +62,10 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue'
-import AButton from '../atoms/AButton.vue'
 import MForm from './MForm.vue'
+import AButton from '@atoms/AButton.vue'
+import { ref } from 'vue'
+
 import { useUserStore } from '@store/userStore'
 
 const { user, fetchAddressByCep } = useUserStore()

@@ -10,6 +10,7 @@
 </template>
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
+
 defineProps({
   negative: {
     type: Boolean,

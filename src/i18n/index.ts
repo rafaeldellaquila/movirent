@@ -1,4 +1,5 @@
 import { createI18n } from 'vue-i18n'
+
 import en from './dict/en.json'
 import pt from './dict/pt.json'
 

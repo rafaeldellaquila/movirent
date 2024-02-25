@@ -45,8 +45,9 @@
 </template>
 
 <script setup lang="ts">
-import { useUserStore } from '@/store/userStore'
 import MForm from './MForm.vue'
+
+import { useUserStore } from '@store/userStore'
 
 const { user } = useUserStore()
 </script>
