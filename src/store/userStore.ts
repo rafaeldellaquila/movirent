@@ -15,13 +15,19 @@ export const useUserStore = defineStore('user', () => {
     status: false
   })
 
-  function saveUserData(user: UserProps) {
-    console.log('saveUserData', user)
-    localStorage.setItem('user', JSON.stringify(user))
+  function saveUserData(userData: UserProps) {
+    console.log('saveUserData', userData)
+    localStorage.setItem('user', JSON.stringify(userData))
+    user.value = userData
   }
 
   function loadUserData(): UserProps | undefined {
     const userData = localStorage.getItem('user')
+    if (userData) {
+      const parsedUserData: UserProps = JSON.parse(userData)
+      user.value = parsedUserData
+      return parsedUserData
+    }
     return userData ? JSON.parse(userData) : user
   }
 

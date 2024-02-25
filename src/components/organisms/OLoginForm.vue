@@ -1,18 +1,21 @@
 <template>
   <form class="space-y-4 md:space-y-6" @submit.prevent="submitForm">
-    <MForm id="email" name="email" label="email" type="email" placeholder="email_placeholder" />
     <MForm
+      v-model="user.email"
+      id="email"
+      name="email"
+      label="email"
+      type="email"
+      placeholder="email_placeholder"
+    />
+    <MForm
+      v-model="user.password"
       id="password"
       name="password"
       label="password"
       type="password"
       placeholder="password_placeholder"
     />
-    <div class="flex items-center justify-between">
-      <a href="#" class="text-sm font-medium hover:underline text-white">
-        {{ $t('forgot_password') }}
-      </a>
-    </div>
     <AButton
       label="sign_in"
       type="submit"
@@ -34,9 +37,12 @@
 import AButton from '@atoms/AButton.vue'
 import MForm from '@molecules/MForm.vue'
 
-const emits = defineEmits(['submitForm'])
+import { useAuthStore } from '@/store/authStore'
 
-function submitForm() {
-  emits('submitForm')
-}
+import { useUserStore } from '@store/userStore'
+
+const { user } = useUserStore()
+const { login } = useAuthStore()
+
+const submitForm = () => login({ email: user.email, password: user.password, status: user.status })
 </script>
