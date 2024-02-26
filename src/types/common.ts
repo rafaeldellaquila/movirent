@@ -22,3 +22,11 @@ export interface AddressProps {
 
 export type UserProps = PersonalDataProps & AuthProps
 export type ClientProps = PersonalDataProps & AddressProps
+
+export interface FilmProps {
+  Poster: string
+  Title: string
+  Year: string
+  Type: string
+  Rent: boolean
+}

@@ -9,7 +9,7 @@
             @click="logout"
             label="logout"
             type="button"
-            class="ml-3 outline px-4 py-2 text-primary-main mr-4"
+            class="ml-3 border px-4 py-2 text-primary-main mr-4"
           />
           <AButton
             @click="isOpen = !isOpen"
@@ -30,7 +30,23 @@
                 href="/"
                 class="border-b-gray-100 border-b-2 lg:border-0 block py-2 pr-4 pl-3 text-primary-main rounded lg:bg-transparent lg:p-0"
                 aria-current="page"
-                >Home</a
+                >{{ $t('home') }}</a
+              >
+            </li>
+            <li>
+              <a
+                href="/"
+                class="border-b-gray-100 border-b-2 lg:border-0 block py-2 pr-4 pl-3 text-primary-main rounded lg:bg-transparent lg:p-0"
+                aria-current="page"
+                >{{ $t('clients') }}</a
+              >
+            </li>
+            <li>
+              <a
+                href="/"
+                class="border-b-gray-100 border-b-2 lg:border-0 block py-2 pr-4 pl-3 text-primary-main rounded lg:bg-transparent lg:p-0"
+                aria-current="page"
+                >{{ $t('library') }}</a
               >
             </li>
           </ul>
