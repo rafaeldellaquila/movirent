@@ -57,8 +57,5 @@ const emits = defineEmits(['changePage'])
 const startItem = computed(() => (props.currentPage - 1) * props.itemsPerPage + 1)
 const endItem = computed(() => Math.min(props.currentPage * props.itemsPerPage, props.totalItems))
 
-const goToPage = (page: number) => {
-  console.log('mtablefooter', page)
-  emits('changePage', page)
-}
+const goToPage = (page: number) => emits('changePage', page)
 </script>

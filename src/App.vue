@@ -15,15 +15,8 @@ const { loadAuthenticationState } = useAuthStore()
 const { loadUserData } = useUserStore()
 const router = useRouter()
 
-console.log('tá autenticado', loadAuthenticationState())
-
 if (loadAuthenticationState()) {
   loadUserData()
   router.push('/auth/dashboard/')
 }
 </script>
-
-<!--
-  listar filmes
-  listar clientes
- -->

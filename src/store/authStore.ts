@@ -33,10 +33,8 @@ export const useAuthStore = defineStore('auth', () => {
   }
 
   function login(authProps: AuthProps) {
-    console.log('authProps', authProps)
     const storedUser = loadUserData()
     if (storedUser && verifyCredentials(storedUser, authProps)) {
-      console.log('if')
       isAuthenticated.value = true
       saveAuthenticationState(true)
       loadUserData()
@@ -49,7 +47,6 @@ export const useAuthStore = defineStore('auth', () => {
   function logout() {
     isAuthenticated.value = false
     saveAuthenticationState(false)
-    console.log('logout', isAuthenticated)
     router.push('/')
   }
 

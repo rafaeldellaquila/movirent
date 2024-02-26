@@ -71,7 +71,6 @@ const performSearch = async (query: string) => {
         `https://www.omdbapi.com/?s=${encodeURIComponent(query)}&apikey=${key}`
       )
       contents.value = data.Search
-      console.log(contents)
     } catch (error) {
       console.error(error)
     }

@@ -16,7 +16,6 @@ export const useUserStore = defineStore('user', () => {
   })
 
   function saveUserData(userData: UserProps) {
-    console.log('saveUserData', userData)
     localStorage.setItem('user', JSON.stringify(userData))
     user.value = userData
   }

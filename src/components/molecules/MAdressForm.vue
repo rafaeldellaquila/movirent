@@ -73,6 +73,5 @@ const cep = ref('')
 
 async function fetchAddress() {
   await fetchAddressByCep(cep.value)
-  console.log('fetchAddress', user)
 }
 </script>
