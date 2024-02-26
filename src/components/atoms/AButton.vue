@@ -4,7 +4,12 @@
     @click="onClick"
     :type="type"
   >
-    {{ $t(`${label}`) }}
+    <template v-if="typeof label === 'string'">
+      {{ $t(label) }}
+    </template>
+    <template v-else>
+      <slot></slot>
+    </template>
   </button>
 </template>
 
@@ -13,7 +18,7 @@ import type { ButtonHTMLAttributes } from 'vue'
 import type { PropType } from 'vue'
 
 defineProps({
-  label: String,
+  label: [String, Object],
   buttonClass: String,
   type: {
     type: String as PropType<ButtonHTMLAttributes['type']>,
