@@ -1,12 +1,12 @@
 <template>
-  <MHeaderAuth />
+  <OHeaderAuth />
   <section class="mx-auto lg:max-w-2xl flex-grow mt-10 md:mt-20 mb-40">
     <RouterView />
   </section>
   <OFooter />
 </template>
 <script setup lang="ts">
-import MHeaderAuth from '@/components/molecules/MHeaderAuth.vue'
 import OFooter from '@organisms/OFooter.vue'
+import OHeaderAuth from '@organisms/OHeaderAuth.vue'
 import { RouterView } from 'vue-router'
 </script>

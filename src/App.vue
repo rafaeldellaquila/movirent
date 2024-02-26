@@ -22,3 +22,8 @@ if (loadAuthenticationState()) {
   router.push('/auth/dashboard/')
 }
 </script>
+
+<!--
+  listar filmes
+  listar clientes
+ -->
